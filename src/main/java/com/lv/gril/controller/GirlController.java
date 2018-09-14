@@ -33,7 +33,7 @@ public class GirlController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList() {
-        System.out.print("2345");
+        System.out.println("2345");
         return girlRepository.findAll();
     }
 

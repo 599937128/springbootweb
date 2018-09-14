@@ -16,6 +16,6 @@ public class HttpAspect {
 
     @Before("execution(public * com.lv.gril.controller.GirlController.*(..))")
     public void log(){
-        System.out.print(123456);
+        System.out.println(1234);
     }
 }
