@@ -1,7 +1,10 @@
-package com.lv.gril;
+package com.lv.gril.service;
 
+import com.lv.gril.domain.Girl;
+import com.lv.gril.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @program: gril
@@ -14,6 +17,8 @@ public class GirlService {
 
     @Autowired
     private GirlRepository girlRepository;
+
+    @Transactional
     public void insertTwo() {
         Girl girl = new Girl();
         girl.setCupSize("F");
@@ -22,7 +27,7 @@ public class GirlService {
         girlRepository.save(girl);
 
         Girl girl2 = new Girl();
-        girl2.setCupSize("D");
+        girl2.setCupSize("Dfff");
         girl2.setAge(19);
 
         girlRepository.save(girl2);

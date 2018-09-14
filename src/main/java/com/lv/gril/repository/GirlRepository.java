@@ -1,5 +1,6 @@
-package com.lv.gril;
+package com.lv.gril.repository;
 
+import com.lv.gril.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

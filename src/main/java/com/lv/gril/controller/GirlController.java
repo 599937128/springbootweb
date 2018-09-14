@@ -1,9 +1,14 @@
-package com.lv.gril;
+package com.lv.gril.controller;
 
+import com.lv.gril.domain.Girl;
+import com.lv.gril.repository.GirlRepository;
+import com.lv.gril.service.GirlService;
 import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -28,21 +33,22 @@ public class GirlController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> girlList() {
+        System.out.print("2345");
         return girlRepository.findAll();
     }
 
     /**
      * 添加一个女生
-     * @param cupSize
-     * @param age
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl addgirl(@RequestParam("cupSize") String cupSize,
-                          @RequestParam("age") Integer age){
-        Girl girl = new Girl();
-        girl.setAge(age);
-        girl.setCupSize(cupSize);
+    public Girl addgirl(@Valid Girl girl, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            System.out.print(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
+        girl.setAge(girl.getAge());
+        girl.setCupSize(girl.getCupSize());
 
         return girlRepository.save(girl);
     }

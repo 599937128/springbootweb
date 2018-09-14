@@ -1,4 +1,4 @@
-package com.lv.gril;
+package com.lv.gril.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
