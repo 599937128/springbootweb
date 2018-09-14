@@ -44,7 +44,7 @@ public class GirlController {
     @PostMapping(value = "/girls")
     public Girl addgirl(@Valid Girl girl, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            System.out.print(bindingResult.getFieldError().getDefaultMessage());
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
             return null;
         }
         girl.setAge(girl.getAge());
